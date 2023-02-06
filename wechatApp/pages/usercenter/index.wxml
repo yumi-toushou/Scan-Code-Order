@@ -1,13 +1,13 @@
 <!--pages/usercenter/index.wxml-->
-<!--  -->
 <t-user-center-card userInfo="{{userInfo}}" isPhoneHide="{{true}}" name-class="custom-name-class" phone-class="custom-phone-class" avatar-class="custome-avatar-class" currAuthStep="{{currAuthStep}}" bind:getUserInfo="onLogin" />
 
+<!-- 订单 -->
 <view class="content-wrapper">
   <t-tabs defaultValue="current">
     <t-tab-panel value="current" label="我的订单">
       <view class="order-container">
         <t-empty icon="info-circle-filled" description="暂无订单">
-          <t-button slot="action" custom-style="margin: auto;" theme="danger" size="small">
+          <t-button slot="action" custom-style="margin: auto;" theme="danger" size="small" catchtap="goOrder">
             扫码点餐</t-button>
         </t-empty>
       </view>
@@ -20,6 +20,7 @@
   </t-tabs>
 </view>
 
+<!-- 登录弹窗 -->
 <t-popup visible="{{visible}}" bind:visible-change="onVisibleChange" placement="bottom">
   <view class="login-content">
     <t-avatar image="https://cdn-we-retail.ym.tencent.com/miniapp/usercenter/icon-user-center-avatar@2x.png" class="user-center-card__header__avatar" />

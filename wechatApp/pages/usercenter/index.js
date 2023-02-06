@@ -109,5 +109,10 @@ Page({
     wx.navigateTo({
       url:'/pages/usercenter/login/index', 
     })
+  },
+  goOrder() {
+    wx.navigateTo({
+      url: '/pages/goods/index',
+    })
   }
 })

@@ -8,20 +8,22 @@
 .goods-category-class {
   padding-bottom: 110rpx;
 }
+
 .list-container {
   background: #feffff;
   width: calc(100vw - 176rpx);
-  height: calc(100vh - 180rpx - env(safe-area-inset-bottom));
+  height: 100vh;
   box-sizing: border-box;
   padding: 20rpx;
   padding-right: 0;
+  padding-bottom: 110rpx;
 }
 
 .goods-container__footer {
   position: fixed;
-  bottom: calc(110rpx + env(safe-area-inset-bottom));
+  bottom: 0;
   background: rgb(255, 255, 255);
-  height: 90rpx;
+  height: 110rpx;
   width: 100%;
   box-sizing: border-box;
   display: flex;

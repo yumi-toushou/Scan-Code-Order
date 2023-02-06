@@ -3,11 +3,11 @@ export default [{
     text: '首页',
     url: 'pages/home/index',
   },
-  {
-    icon: 'sort',
-    text: '分类',
-    url: 'pages/goods/index',
-  },
+  // {
+  //   icon: 'sort',
+  //   text: '分类',
+  //   url: 'pages/goods/index',
+  // },
   // {
   //   icon: 'cart',
   //   text: '购物车',

@@ -27,7 +27,7 @@
       </span>
     </view>
     <view>
-      <t-button style="margin-right: 20rpx;" size="small" shape="round">查看详情</t-button>
+      <!-- <t-button style="margin-right: 20rpx;" size="small" shape="round">查看详情</t-button> -->
       <t-button size="small" shape="round" theme="danger">确认下单</t-button>
     </view>
   </view>
