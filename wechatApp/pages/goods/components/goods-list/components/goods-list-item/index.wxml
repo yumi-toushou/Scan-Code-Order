@@ -1,0 +1,17 @@
+<!--pages/goods/components/goods-list/components/goods-list-item/index.wxml-->
+<view class="goods-list-item">
+  <t-image src="{{listItem.thumbnail}}" t-class="image" />
+  <view class="detail">
+    <view>
+      {{ listItem.title }}
+    </view>
+    <view style="display: flex; align-items: center;justify-content: space-between;">
+      <view>
+        单价：
+        <price price="{{listItem.price || '0'}}" fill="{{false}}" decimalSmaller class="price" />
+      </view>
+      <t-stepper wx:if="{{count > 0}}" value="{{ count }}" size="small" min="1" max="999" theme="filled" bind:change="" />
+      <t-icon wx:else name="add-circle" size="35rpx" style="padding-right: 20rpx;" color="red" />
+    </view>
+  </view>
+</view>

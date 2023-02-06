@@ -1,4 +1,9 @@
 {
   "navigationBarTitleText": "商品",
-  "usingComponents": {}
+  "usingComponents": {
+    "t-button": "/miniprogram_npm/tdesign-miniprogram/button/button",
+    "goods-category": "./components/goods-category/index",
+    "goods-list": "./components/goods-list/index",
+    "price": "/components/price/index"
+  }
 }

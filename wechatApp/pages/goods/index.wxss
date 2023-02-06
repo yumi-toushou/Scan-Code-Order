@@ -1,1 +1,37 @@
 /* pages/goods/index.wxss */
+.goods-container {
+  height: 100vh;
+  overflow: hidden;
+  background: #f6f6f6;
+}
+
+.goods-category-class {
+  padding-bottom: 110rpx;
+}
+.list-container {
+  background: #feffff;
+  width: calc(100vw - 176rpx);
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 20rpx;
+  padding-right: 0;
+}
+
+.goods-container__footer {
+  position: fixed;
+  bottom: calc(110rpx + env(safe-area-inset-bottom));
+  background: rgb(255, 255, 255);
+  height: 90rpx;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20rpx;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.total-price {
+  color: red;
+}

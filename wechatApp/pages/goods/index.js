@@ -5,6 +5,70 @@ Page({
    * 页面的初始数据
    */
   data: {
+    category: [{
+      id: '1',
+      name: '女装'
+    }, {
+      id: '2',
+      name: '男装'
+    }],
+    list: [
+      {
+        id: '1',
+        price: '1099',
+        title: '辣椒炒肉',
+        categoryId: '1'
+      },
+      {
+        id: '1',
+        price: '1099',
+        title: '辣椒炒肉',
+        categoryId: '1'
+      },
+      {
+        id: '1',
+        price: '1099',
+        title: '辣椒炒肉',
+        categoryId: '1'
+      },
+      {
+        id: '1',
+        price: '1099',
+        title: '辣椒炒肉',
+        categoryId: '1'
+      },
+      {
+        id: '1',
+        price: '1099',
+        title: '辣椒炒肉',
+        categoryId: '1'
+      },
+      {
+        id: '1',
+        price: '1099',
+        title: '辣椒炒肉',
+        categoryId: '1'
+      },
+      {
+        id: '1',
+        price: '1099',
+        title: '辣椒炒肉',
+        categoryId: '1'
+      },
+      {
+        id: '1',
+        price: '1099',
+        title: '辣椒炒肉',
+        categoryId: '1'
+      },
+      {
+        id: '2',
+        price: '1099',
+        title: '蒜苔炒肉',
+        categoryId: '2'
+      },
+    ],
+    activeKey: '1'
   },
 
   /**
@@ -26,6 +90,7 @@ Page({
    */
   onShow() {
     this.getTabBar().init();
+    console.log(this.getTabBar())
   },
 
   /**
@@ -63,4 +128,9 @@ Page({
 
   },
 
+  onChange(e) {
+    this.setData({
+      activeKey: e.detail
+    })
+  }
 })

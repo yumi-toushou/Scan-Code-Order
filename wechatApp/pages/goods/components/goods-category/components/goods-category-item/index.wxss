@@ -1,0 +1,31 @@
+/* pages/goods/components/goods-category-item/index.wxss */
+.title-container {
+  font-size: 28rpx;
+  text-align: center;
+  background: #fff;
+  height: 80rpx;
+}
+
+.active {
+  color: #fa4126;
+  background-color: #fff !important;
+  border-radius: 0;
+}
+
+.title {
+  height: 100%;
+  line-height: 80rpx;
+  position: relative;
+  background: #f6f6f6;
+}
+
+.active.title::before {
+  content: ' ';
+  display: block;
+  width: 5rpx;
+  height: 40rpx;
+  background-color: red;
+  position: absolute;
+  top: 20rpx;
+  left: 0;
+}

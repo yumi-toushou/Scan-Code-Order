@@ -1,3 +1,34 @@
-<!--pages/goods/index.wxml-->
-<text>pages/goods/index.wxml</text>
+<wxs module="tool">
+  module.exports = {
+    getActiveGoods: function (array, activeKey) {
+      return array.filter(function (i) {
+        return i.categoryId === activeKey
+      })
+    }
+  }
+</wxs>
 
+<view class="goods-container">
+  <view style="display: flex;">
+    <!-- 左侧分类 -->
+    <goods-category activeKey="{{ activeKey }}" custom-class="goods-category-class" category="{{category}}" bind:changeCategory="onChange" />
+    <!-- 右侧 -->
+    <goods-list custom-class="list-container" list="{{tool.getActiveGoods(list, activeKey)}}"></goods-list>
+  </view>
+  <!-- 底部 -->
+  <view class="goods-container__footer">
+    <view style="font-size: 28rpx;">
+      <span style="margin-right: 10rpx;">
+        座位：5号桌
+      </span>
+      <span>
+        总计：
+        <price price="{{123 || '0'}}" fill="{{false}}" decimalSmaller class="total-price" />
+      </span>
+    </view>
+    <view>
+      <t-button style="margin-right: 20rpx;" size="small" shape="round">查看详情</t-button>
+      <t-button size="small" shape="round" theme="danger">确认下单</t-button>
+    </view>
+  </view>
+</view>

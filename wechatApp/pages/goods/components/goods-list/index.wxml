@@ -1,0 +1,4 @@
+<!--pages/goods/components/goods-list/index.wxml-->
+<scroll-view class="main custom-class" scroll-y>
+  <goods-list-item wx:key="index" wx:for="{{ list }}" count="{{ 0 }}" listItem="{{item}}"></goods-list-item>
+</scroll-view>
