@@ -9,7 +9,7 @@ Component({
       value: {}
     },
     count: {
-      type:Number,
+      type: Number,
       value: 0
     }
   },
@@ -26,6 +26,17 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    onAdd(e) {
+      this.triggerEvent('addGoods', {
+        ...this.properties.listItem,
+        count: 1
+      })
+    },
+    onSelectCount(e) {
+      this.triggerEvent('addGoods', {
+        ...this.properties.listItem,
+        count: e.detail.value
+      })
+    }
   }
 })

@@ -1,4 +1,6 @@
-// pages/goods/index.js
+
+import shopCarStore from '../../store/shopCar.js'
+
 Page({
 
   /**
@@ -20,62 +22,64 @@ Page({
         categoryId: '1'
       },
       {
-        id: '1',
-        price: '1099',
-        title: '辣椒炒肉',
-        categoryId: '1'
-      },
-      {
-        id: '1',
-        price: '1099',
-        title: '辣椒炒肉',
-        categoryId: '1'
-      },
-      {
-        id: '1',
-        price: '1099',
-        title: '辣椒炒肉',
-        categoryId: '1'
-      },
-      {
-        id: '1',
-        price: '1099',
-        title: '辣椒炒肉',
-        categoryId: '1'
-      },
-      {
-        id: '1',
-        price: '1099',
-        title: '辣椒炒肉',
-        categoryId: '1'
-      },
-      {
-        id: '1',
-        price: '1099',
-        title: '辣椒炒肉',
-        categoryId: '1'
-      },
-      {
-        id: '1',
-        price: '1099',
-        title: '辣椒炒肉',
-        categoryId: '1'
-      },
-      {
         id: '2',
+        price: '1099',
+        title: '竹笋炒肉',
+        categoryId: '1'
+      },
+      {
+        id: '3',
+        price: '1099',
+        title: '小鸡炖蘑菇',
+        categoryId: '1'
+      },
+      {
+        id: '4',
+        price: '1099',
+        title: '小炒肉',
+        categoryId: '1'
+      },
+      {
+        id: '5',
+        price: '1099',
+        title: '豆角炒肉',
+        categoryId: '1'
+      },
+      {
+        id: '6',
+        price: '1099',
+        title: '酸辣土豆丝',
+        categoryId: '1'
+      },
+      {
+        id: '7',
+        price: '1099',
+        title: '西红柿炒蛋',
+        categoryId: '1'
+      },
+      {
+        id: '8',
+        price: '1099',
+        title: '土豆炖牛肉',
+        categoryId: '1'
+      },
+      {
+        id: '9',
         price: '1099',
         title: '蒜苔炒肉',
         categoryId: '2'
       },
     ],
-    activeKey: '1'
+    activeKey: '1',
+    goods: [[]],
+    price: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    shopCarStore.bind(this)
   },
 
   /**
@@ -132,5 +136,10 @@ Page({
     this.setData({
       activeKey: e.detail
     })
+  },
+
+  changeGoods(e) {
+    const item = e.detail
+    shopCarStore.addGoods({isAppend: false, goodId: item.id, price: item.price, count: item.count})
   }
 })

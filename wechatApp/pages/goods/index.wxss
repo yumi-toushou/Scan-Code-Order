@@ -11,7 +11,7 @@
 .list-container {
   background: #feffff;
   width: calc(100vw - 176rpx);
-  height: 100vh;
+  height: calc(100vh - 180rpx - env(safe-area-inset-bottom));
   box-sizing: border-box;
   padding: 20rpx;
   padding-right: 0;

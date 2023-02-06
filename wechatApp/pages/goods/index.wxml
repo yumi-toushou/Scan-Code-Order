@@ -13,7 +13,7 @@
     <!-- 左侧分类 -->
     <goods-category activeKey="{{ activeKey }}" custom-class="goods-category-class" category="{{category}}" bind:changeCategory="onChange" />
     <!-- 右侧 -->
-    <goods-list custom-class="list-container" list="{{tool.getActiveGoods(list, activeKey)}}"></goods-list>
+    <goods-list custom-class="list-container" list="{{tool.getActiveGoods(list, activeKey)}}" good2count="{{good2count}}" bind:changeGoods="changeGoods"></goods-list>
   </view>
   <!-- 底部 -->
   <view class="goods-container__footer">
@@ -23,7 +23,7 @@
       </span>
       <span>
         总计：
-        <price price="{{123 || '0'}}" fill="{{false}}" decimalSmaller class="total-price" />
+        <price price="{{price|| '0'}}" fill="{{false}}" decimalSmaller class="total-price" />
       </span>
     </view>
     <view>

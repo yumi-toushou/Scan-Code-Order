@@ -8,6 +8,10 @@ Component({
       type: Array,
       value: []
     },
+    good2count: {
+      type: Object,
+      value: {}
+    }
   },
 
   externalClasses: ['custom-class'],
@@ -22,6 +26,8 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    changeGoods(e) {
+      this.triggerEvent('changeGoods', e.detail)
+    }
   }
 })
