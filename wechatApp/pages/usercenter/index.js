@@ -1,4 +1,5 @@
 // pages/usercenter/index.js
+import shopCarStore from '../../store/shopCar'
 Page({
 
   /**
@@ -14,7 +15,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
   },
 
   /**
@@ -29,7 +29,6 @@ Page({
    */
   onShow() {
     this.getTabBar().init()
-
   },
 
   /**
@@ -85,7 +84,7 @@ Page({
           })
           resolve()
         },
-        fail: function(err) {
+        fail: function (err) {
           reject(err)
         }
       })
@@ -107,12 +106,21 @@ Page({
   },
   onOtherLoginMethod() {
     wx.navigateTo({
-      url:'/pages/usercenter/login/index', 
+      url: '/pages/usercenter/login/index',
     })
   },
   goOrder() {
-    wx.navigateTo({
-      url: '/pages/goods/index',
+    // 二维码包含的信息：桌位
+    wx.scanCode({
+      success(res) {
+        const codeInfo = JSON.parse(res.result)
+        wx.navigateTo({
+          url: '/pages/goods/index',
+          success: function (res) {
+            res.eventChannel.emit('acceptCodeInfo', codeInfo)
+          }
+        })
+      }
     })
   }
 })

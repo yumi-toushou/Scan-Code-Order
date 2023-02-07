@@ -62,5 +62,20 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+
+  scanCode() {
+    // 二维码包含的信息：桌位
+    wx.scanCode({
+      success(res) {
+        const codeInfo = JSON.parse(res.result)
+        wx.navigateTo({
+          url: '/pages/goods/index',
+          success: function(res) {
+            res.eventChannel.emit('acceptCodeInfo', codeInfo)
+          }
+        })
+      }
+    })
   }
 })

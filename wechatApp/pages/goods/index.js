@@ -80,6 +80,10 @@ Page({
    */
   onLoad(options) {
     shopCarStore.bind(this)
+    const eventChannel = this.getOpenerEventChannel()
+    eventChannel?.on('acceptCodeInfo', function(data) {
+      shopCarStore.setDesk(data.desk)
+    })
   },
 
   /**
@@ -139,5 +143,6 @@ Page({
   changeGoods(e) {
     const item = e.detail
     shopCarStore.addGoods({isAppend: false, goodId: item.id, price: item.price, count: item.count})
-  }
+  },
+
 })

@@ -19,7 +19,7 @@
   <view class="goods-container__footer">
     <view style="font-size: 28rpx;">
       <span style="margin-right: 10rpx;">
-        座位：5号桌
+        座位：{{desk}}号桌
       </span>
       <span>
         总计：

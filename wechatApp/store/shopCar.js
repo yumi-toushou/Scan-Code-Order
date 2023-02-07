@@ -12,7 +12,8 @@ class ShopCar extends Store {
       goods: [
         []
       ],
-      price: 0
+      price: 0,
+      desk: 0
     }
   }
 
@@ -65,6 +66,11 @@ class ShopCar extends Store {
       result[item.goodId] = item.count
     })
     this.data.good2count = result
+  }
+
+  setDesk(position) {
+    this.data.desk = position
+    this.update()
   }
 }
 
