@@ -1,7 +1,10 @@
 <template>
   <el-form :model="formModel" label-width="60">
     <el-form-item v-for="(item, index) in formItems" :key="index" :label="item.label">
-      <el-input v-model="_selfFormModel[item?.prop]"></el-input>
+      <el-input v-if="item.type === 'string'" v-model="_selfFormModel[item?.prop]"></el-input>
+      <el-select style="width: 100%;" placeholder="请选择" v-else-if="item.type === 'select'" v-model="_selfFormModel[item?.prop]">
+        <el-option v-for="item2 in optionsData[item.prop] || []" :key="item2.value" :label="item2.label" :value="item2.value" />
+      </el-select>
     </el-form-item>
     <el-form-item>
       <el-button type="primary" @click="submit">确定</el-button>
@@ -21,6 +24,10 @@ const props = defineProps({
   formItems: {
     type: Array,
     default: []
+  },
+  optionsData: {
+    type: Object,
+    default: {}
   }
 })
 
@@ -35,5 +42,5 @@ watch(() => props.formModel, (value) => {
 
 const submit = () => {
   emits('submit', _selfFormModel.value)
- }
+}
 </script>

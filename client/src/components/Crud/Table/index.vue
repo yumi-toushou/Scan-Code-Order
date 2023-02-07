@@ -1,7 +1,14 @@
 <template>
   <el-table :data="tableData" col border>
-    <el-table-column v-for="(item, index) in tableColumns"  :key="index" :prop="item?.prop"
-      :label="item?.label"></el-table-column>
+    <el-table-column v-for="(item, index) in tableColumns" :key="index" :prop="item?.prop" :label="item?.label">
+      <template #default="scope">
+        {{
+          item.type === 'select'
+            ? optionsData[item?.prop]?.find(i => i.value === scope.row[item?.prop])?.label || ''
+            : scope.row[item?.prop]
+        }}
+      </template>
+    </el-table-column>
     <el-table-column label="编辑">
       <template #default="scope">
         <el-button type="warning" size="small" @click.prevent="updateRow(scope.row)">
@@ -26,7 +33,11 @@ defineProps({
   },
   tableColumns: {
     type: Array,
-    defaukt: []
+    default: []
+  },
+  optionsData: {
+    type: Object,
+    default: {}
   }
 })
 

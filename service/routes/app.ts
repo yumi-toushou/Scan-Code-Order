@@ -6,12 +6,17 @@ import DeskModel from '../models/Desk/index'
 import CategoryController from '../controller/CategoryController';
 import CategoryModel from '../models/Category/index'
 
+import GoodController from '../controller/GoodController';
+import GoodModel from '../models/Good/index'
+
 const generateApp = (type: string) => {
     switch (type) {
         case 'desk':
             return { controller: DeskController, model: DeskModel }; break;
         case 'category':
             return { controller: CategoryController, model: CategoryModel }; break;
+        case 'good':
+            return { controller: GoodController, model: GoodModel }; break;
         default:
             return { controller: DeskController, model: [] }
     }
@@ -21,8 +26,8 @@ const appRouter = Router();
 
 appRouter.get('/:app', async (req: any, res: any) => {
     try {
-        const {app: appType} = req.params
-        const app =  generateApp(appType)
+        const { app: appType } = req.params
+        const app = generateApp(appType)
         res.status(200).send({
             message: 'ok',
             data: app.model
@@ -37,9 +42,9 @@ appRouter.get('/:app', async (req: any, res: any) => {
 
 appRouter.get('/:app/getList', async (req: any, res: any) => {
     try {
-        const {app: appType} = req.params
+        const { app: appType } = req.params
 
-        const app =  generateApp(appType)
+        const app = generateApp(appType)
         const data = await app.controller.getList({})
 
         res.status(200).send({
@@ -56,10 +61,9 @@ appRouter.get('/:app/getList', async (req: any, res: any) => {
 
 appRouter.post('/:app/add', async (req: any, res: any) => {
     try {
-        const {app: appType} = req.params
-        const app =  generateApp(appType)
-        const { name } = req.body
-        const data = await app.controller.add({ name: name })
+        const { app: appType } = req.params
+        const app = generateApp(appType)
+        const data = await app.controller.add(req.body)
         res.send({
             message: 'ok',
             data,
@@ -74,12 +78,12 @@ appRouter.post('/:app/add', async (req: any, res: any) => {
 
 appRouter.post('/:app/update/:id', async (req: any, res: any) => {
     try {
-        const {app: appType, id} = req.params
-        const app =  generateApp(appType)
+        const { app: appType, id } = req.params
+        const app = generateApp(appType)
         const data = req.body
         console.log(Object.keys(req.body))
         console.log(data)
-        const result = await app.controller.update(data, { where: {Id: id} })
+        const result = await app.controller.update(data, { where: { Id: id } })
         res.send({
             message: 'ok',
             data: result,
@@ -94,8 +98,8 @@ appRouter.post('/:app/update/:id', async (req: any, res: any) => {
 
 appRouter.post('/:app/remove/:id', async (req: any, res: any) => {
     try {
-        const {app: appType, id} = req.params
-        const app =  generateApp(appType)
+        const { app: appType, id } = req.params
+        const app = generateApp(appType)
         console.log(id)
         const data = await app.controller.remove({
             where: {

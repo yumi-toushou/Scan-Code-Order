@@ -19,7 +19,7 @@
           </el-icon>
           <span>桌位管理</span>
         </el-menu-item>
-        <el-menu-item index="3">
+        <el-menu-item index="order">
           <el-icon>
             <document />
           </el-icon>

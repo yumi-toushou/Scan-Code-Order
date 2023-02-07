@@ -2,9 +2,9 @@
   <div style="margin-bottom: 15px">
     <el-button type="primary" @click="onAdd">新增</el-button>
   </div>
-  <Table :table-data="tableData" :table-columns="formItems" @remove="remove" @update="onUpdate" />
+  <Table :table-data="tableData" :options-data="optionsData" :table-columns="formItems" @remove="remove" @update="onUpdate" />
   <Popover :dialog-table-visible="show" :title="title">
-    <Form @submit="submit" :formModel="formModel" :formItems="formItems" />
+    <Form @submit="submit" :formModel="formModel" :formItems="formItems" :options-data="optionsData" />
   </Popover>
 </template>
 
@@ -19,6 +19,10 @@ const props = defineProps({
   app: {
     type: String,
     default: ''
+  },
+  optionsData: {
+    type: Object,
+    default: {}
   }
 })
 
@@ -44,6 +48,7 @@ const change = () => {
 
 const submit = async (newForm: any) => {
   if (title.value === '新增') {
+    console.log(newForm)
     const response = await app.value.add(newForm)
     if (response.message === 'ok') {
       change()

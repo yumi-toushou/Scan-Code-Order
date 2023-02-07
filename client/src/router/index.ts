@@ -3,6 +3,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import DeskManage from '../views/DeskManage/index.vue'
 import CategoryManage from '../views/CategoryManage/index.vue'
 import GoodsManage from '../views/GoodsManage/index.vue'
+import OrderManage from '../views/OrderManage/index.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -11,26 +13,6 @@ const router = createRouter({
       name: 'login',
       component: () => import('../views/Login/index.vue'),
     },
-    // {
-    //   path: '/',
-    //   component: () => import('../components/Layout/Layout.vue'),
-    //   redirect: '/home',
-    //   children: [
-    //     {
-    //       path: '/home',
-    //       name: 'home',
-    //       component: HomeView
-    //     },
-    //     {
-    //       path: '/about',
-    //       name: 'about',
-    //       // route level code-splitting
-    //       // this generates a separate chunk (About.[hash].js) for this route
-    //       // which is lazy-loaded when the route is visited.
-    //       component: () => import('../views/AboutView.vue')
-    //     }
-    //   ]
-    // },
     {
       path: '/manage',
       component: () => import('../components/Layout/ManageLayout.vue'),
@@ -60,7 +42,13 @@ const router = createRouter({
           name: 'category',
           meta: { name: '类别管理' },
           component: CategoryManage,
-    },
+        },
+        {
+          path: 'order',
+          name: 'order',
+          meta: { name: '订单管理' },
+          component: OrderManage,
+        },
       ]
     }
   ]
