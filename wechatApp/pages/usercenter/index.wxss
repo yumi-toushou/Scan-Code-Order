@@ -6,17 +6,19 @@ page {
   margin-top: 340rpx;
   position: relative;
   padding: 0;
-  min-height: calc(100vh - 340rpx);
+  height: calc(100vh - 340rpx - var(--td-tab-bar-height, 80rpx));
+  overflow: hidden;
   background: #fff;
 }
 
 .order-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 600rpx;
+  height: calc(100vh - 340rpx - var(--td-tab-bar-height, 80rpx) - var(--td-tab-bar-height, 96rpx));
+  padding: 20rpx;
+  box-sizing: border-box;
 }
-
+.t-empty {
+  margin-top: 50rpx;
+}
 .login-content {
   height: 500rpx;
   background: #fff;

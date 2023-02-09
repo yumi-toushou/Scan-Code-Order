@@ -1,14 +1,14 @@
-import request from './utils/request'
+import request from './request'
 
 export class Crud {
   constructor({ app }) {
     this.data = {
       app
     }
-    this.baseUrl = `/api/app/${app}`
+    this.baseUrl = `/app/${app}`
   }
 
-  public getAppModel() {
+  async getAppModel() {
     return request({
       url: this.baseUrl,
       method: 'get',
@@ -17,7 +17,7 @@ export class Crud {
     })
   }
 
-  public async getList() {
+  async getList() {
     return request({
       url: `${this.baseUrl}/getList`,
       method: 'get',
@@ -26,17 +26,19 @@ export class Crud {
     })
   }
 
-  public async get() {return {}}
+  async get() {
+    return {}
+  }
 
-  public async add(data) {
+  async add(data) {
     return request({
       url: `${this.baseUrl}/add`,
       method: 'post',
       data,
     })
   }
-  
-  public async update(data) { 
+
+  async update(data) {
     return request({
       url: `${this.baseUrl}/update/${data.Id}`,
       method: 'post',
@@ -44,7 +46,7 @@ export class Crud {
     })
   }
 
-  public async remove(id:string) {
+  async remove(id) {
     return request({
       url: `${this.baseUrl}/remove/${id}`,
       method: 'post',

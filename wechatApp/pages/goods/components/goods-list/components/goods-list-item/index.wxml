@@ -3,7 +3,7 @@
   <t-image src="{{listItem.thumbnail}}" t-class="image" />
   <view class="detail">
     <view>
-      {{ listItem.title }}
+      {{ listItem.name }}
     </view>
     <view style="display: flex; align-items: center;justify-content: space-between;">
       <view>

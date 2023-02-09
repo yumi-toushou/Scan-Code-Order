@@ -1,6 +1,6 @@
 <template>
-  <el-table :data="tableData" col border>
-    <el-table-column v-for="(item, index) in tableColumns" :key="index" :prop="item?.prop" :label="item?.label">
+  <el-table :data="tableData" border>
+    <el-table-column width="" v-for="(item, index) in tableColumns" :key="index" :prop="item?.prop" :label="item?.label">
       <template #default="scope">
         {{
           item.type === 'select'

@@ -9,6 +9,12 @@ import CategoryModel from '../models/Category/index'
 import GoodController from '../controller/GoodController';
 import GoodModel from '../models/Good/index'
 
+import OrderController from '../controller/OrderController';
+import OrderModel from '../models/Order/index'
+
+import UserController from '../controller/UserController';
+import UserModel from '../models/User/index'
+
 const generateApp = (type: string) => {
     switch (type) {
         case 'desk':
@@ -17,6 +23,10 @@ const generateApp = (type: string) => {
             return { controller: CategoryController, model: CategoryModel }; break;
         case 'good':
             return { controller: GoodController, model: GoodModel }; break;
+        case 'order':
+            return { controller: OrderController, model: OrderModel }; break;
+        case 'user':
+            return { controller: UserController, model: UserModel }; break;
         default:
             return { controller: DeskController, model: [] }
     }
@@ -63,6 +73,7 @@ appRouter.post('/:app/add', async (req: any, res: any) => {
     try {
         const { app: appType } = req.params
         const app = generateApp(appType)
+        console.log(req)
         const data = await app.controller.add(req.body)
         res.send({
             message: 'ok',

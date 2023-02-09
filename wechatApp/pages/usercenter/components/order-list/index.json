@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "order-detail": "../order-detail/index",
+    "price": "/components/price/index"
+  }
+}

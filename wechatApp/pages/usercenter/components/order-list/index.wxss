@@ -1,0 +1,45 @@
+/* pages/usercenter/components/order-list/index.wxss */
+
+.order-list-item-content {
+  background: #fff;
+  border-radius: 10rpx;
+  box-shadow: 0 0 10px -1px #e4e5e6;
+  padding: 10rpx 20rpx;
+  box-sizing: border-box;
+}
+
+.order-list-item-content{
+  margin-bottom: 20rpx;
+}
+.order-list-title {
+  width: 100%;
+}
+
+.number {
+  border-bottom: solid 1px #eeeeee;
+  line-height: 60rpx;
+  color: #999;
+}
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 120rpx;
+  color: #999;
+}
+.footer{
+  text-align: right;
+  position: relative;
+  padding-top: 10rpx;
+  color: #0077ff75;
+}
+.footer::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  width: calc(100% + 40rpx);
+  left: -20rpx;
+  top: 0;
+  height: 1rpx;
+  background-color: rgb(231, 231, 231);
+}

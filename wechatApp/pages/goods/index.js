@@ -1,5 +1,9 @@
-
 import shopCarStore from '../../store/shopCar.js'
+import userStore from '../../store/user.js'
+import categoryApp from '../../apis/category/index'
+import goodsApp from '../../apis/goods/index'
+import orderApp from '../../apis/order/index'
+import order from '../../apis/order/index'
 
 Page({
 
@@ -14,64 +18,23 @@ Page({
       id: '2',
       name: '男装'
     }],
-    list: [
-      {
+    list: [{
         id: '1',
         price: '1099',
-        title: '辣椒炒肉',
+        name: '辣椒炒肉',
         categoryId: '1'
       },
       {
         id: '2',
         price: '1099',
-        title: '竹笋炒肉',
+        name: '竹笋炒肉',
         categoryId: '1'
-      },
-      {
-        id: '3',
-        price: '1099',
-        title: '小鸡炖蘑菇',
-        categoryId: '1'
-      },
-      {
-        id: '4',
-        price: '1099',
-        title: '小炒肉',
-        categoryId: '1'
-      },
-      {
-        id: '5',
-        price: '1099',
-        title: '豆角炒肉',
-        categoryId: '1'
-      },
-      {
-        id: '6',
-        price: '1099',
-        title: '酸辣土豆丝',
-        categoryId: '1'
-      },
-      {
-        id: '7',
-        price: '1099',
-        title: '西红柿炒蛋',
-        categoryId: '1'
-      },
-      {
-        id: '8',
-        price: '1099',
-        title: '土豆炖牛肉',
-        categoryId: '1'
-      },
-      {
-        id: '9',
-        price: '1099',
-        title: '蒜苔炒肉',
-        categoryId: '2'
-      },
+      }
     ],
     activeKey: '1',
-    goods: [[]],
+    goods: [
+      []
+    ],
     price: 0
   },
 
@@ -81,8 +44,32 @@ Page({
   onLoad(options) {
     shopCarStore.bind(this)
     const eventChannel = this.getOpenerEventChannel()
-    eventChannel?.on('acceptCodeInfo', function(data) {
+    eventChannel?.on('acceptCodeInfo', function (data) {
       shopCarStore.setDesk(data.desk)
+    })
+
+    categoryApp.getList().then(res => {
+      this.setData({
+        category: res.data.map(item => {
+          return {
+            ...item,
+            id: item.Id
+          }
+        }),
+        activeKey: res.data[0]?.Id || ''
+      })
+    })
+
+    goodsApp.getList().then(res => {
+      console.log(res)
+      this.setData({
+        list: res.data.map(item => {
+          return {
+            ...item,
+            id: item.Id,
+          }
+        })
+      })
     })
   },
 
@@ -96,8 +83,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow() {
-  },
+  onShow() {},
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -142,7 +128,26 @@ Page({
 
   changeGoods(e) {
     const item = e.detail
-    shopCarStore.addGoods({isAppend: false, goodId: item.id, price: item.price, count: item.count})
+    shopCarStore.addGoods({
+      isAppend: false,
+      goodId: item.id,
+      price: item.price,
+      count: item.count
+    })
   },
 
+  addOrder() {
+    const userInfo = userStore.data.userInfo
+    orderApp.add({
+      userId: userInfo.id,
+      status: 0,
+      goods: JSON.stringify(this.data.goods)
+    }).then(res => {
+      if (res.data.message === 'ok') {
+        wx.switchTab({
+          url: '/pages/usercenter/index',
+        })
+      }
+    })
+  }
 })

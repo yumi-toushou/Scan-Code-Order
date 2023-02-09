@@ -25,12 +25,16 @@
           </el-icon>
           <span>订单管理</span>
         </el-menu-item>
-        <el-menu-item index="4">
-          <el-icon>
+        <el-sub-menu index="2">
+          <template #title>
+            <el-icon>
             <setting />
           </el-icon>
-          <span>个人中心</span>
-        </el-menu-item>
+          <span>用户管理</span>
+          </template>
+          <el-menu-item index="userlist">用户列表</el-menu-item>
+          <el-menu-item index="usercenter">个人中心</el-menu-item>
+        </el-sub-menu>
       </el-menu>
     </div>
     <div class="right">
@@ -91,8 +95,8 @@ const onSelect = (routeName) => {
 }
 
 .right {
-  flex: 1;
 
+  width: calc(100% - 210px);
   .tab-bar {
     height: 50px;
     border-bottom: solid 1px var(--el-menu-border-color);

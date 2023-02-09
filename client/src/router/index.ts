@@ -4,6 +4,8 @@ import DeskManage from '../views/DeskManage/index.vue'
 import CategoryManage from '../views/CategoryManage/index.vue'
 import GoodsManage from '../views/GoodsManage/index.vue'
 import OrderManage from '../views/OrderManage/index.vue'
+import UserManage from '../views/UserManage/index.vue'
+import UserCenter from '../views/UserManage/usercenter.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -48,6 +50,25 @@ const router = createRouter({
           name: 'order',
           meta: { name: '订单管理' },
           component: OrderManage,
+        },
+        {
+          path: 'user',
+          name: 'user',
+          meta: { name: '用户管理' },
+          children: [
+            {
+              path: 'userlist',
+              name: 'userlist',
+              meta: { name: '用户列表' },
+              component: UserManage,
+            },
+            {
+              path: 'usercenter',
+              name: 'usercenter',
+              meta: { name: '个人中心' },
+              component: UserCenter,
+            }
+          ]
         },
       ]
     }

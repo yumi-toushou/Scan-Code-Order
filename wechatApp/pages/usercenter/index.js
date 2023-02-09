@@ -8,7 +8,9 @@ Page({
   data: {
     userInfo: {},
     currAuthStep: 1,
-    visible: false
+    visible: false,
+    haveOrder: false,
+    historyOrderList: [{Id: 1}, {Id: 2}]
   },
 
   /**

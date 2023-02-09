@@ -1,5 +1,5 @@
 <template>
-  <el-form :model="formModel" label-width="60">
+  <el-form :model="formModel" label-width="100">
     <el-form-item v-for="(item, index) in formItems" :key="index" :label="item.label">
       <el-input v-if="item.type === 'string'" v-model="_selfFormModel[item?.prop]"></el-input>
       <el-select style="width: 100%;" placeholder="请选择" v-else-if="item.type === 'select'" v-model="_selfFormModel[item?.prop]">
