@@ -1,0 +1,27 @@
+/* pages/goods/components/goods-list/components/goods-list-item/index.wxss */
+.goods-list-item {
+  height: 150rpx;
+  display: flex;
+  align-items: center;
+  margin-top: 10rpx;
+  box-shadow: 0 0 10px 1px #f7f8fe;
+}
+
+.image {
+  width: 134rpx;
+  height: 134rpx;
+}
+.detail {
+  flex: 1;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #666666;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0 20rpx;
+}
+.price {
+  color: red;
+}

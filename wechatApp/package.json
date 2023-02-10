@@ -1,0 +1,15 @@
+{
+  "name": "wechatapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tdesign-miniprogram": "^1.0.0-rc.1",
+    "westore": "^0.1.9"
+  }
+}

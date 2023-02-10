@@ -1,0 +1,24 @@
+<!--pages/usercenter/components/order-detail/index.wxml-->
+<scroll-view scroll-y class="scroll custom-class">
+  <view wx:for="{{goods}}" class="goods-item">
+    <t-image src="{{item.thumbnail}}" t-class="image" />
+    <view class="detail">
+      <view>
+        {{ item.name }}
+      </view>
+      <view class="detail-second-row">
+        <span>
+          单价：
+          <price price="{{item.price || '0'}}" fill="{{false}}" decimalSmaller />
+        </span>
+        <span>
+          数量： {{item.count}}
+        </span>
+        <span>
+          总计：
+          <price price="{{item.price * item.count || '0'}}" fill="{{false}}" decimalSmaller />
+        </span>
+      </view>
+    </view>
+  </view>
+</scroll-view>

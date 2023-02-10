@@ -1,0 +1,7 @@
+<!--pages/home/index.wxml-->
+<view class="content-wrapper">
+  <view class="main-content">
+    <t-icon name="scan" size="40vmin" catchtap="scanCode"></t-icon>
+  </view>
+  <p style="margin-top: 6vmin;">扫码点餐</p>
+</view>

@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "goods-category-item": "./components/goods-category-item/index"
+  }
+}

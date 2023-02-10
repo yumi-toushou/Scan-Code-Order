@@ -1,0 +1,6 @@
+<!--pages/goods/components/goods-category-item/index.wxml-->
+<view class="title-container">
+  <view class="title  {{isActive ? 'active' : ''}} custom-class">
+    {{name}}
+  </view>
+</view>

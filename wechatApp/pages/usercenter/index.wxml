@@ -1,0 +1,40 @@
+<!--pages/usercenter/index.wxml-->
+<t-user-center-card userInfo="{{userInfo}}" isPhoneHide="{{true}}" name-class="custom-name-class" phone-class="custom-phone-class" avatar-class="custome-avatar-class" currAuthStep="{{currAuthStep}}" bind:getUserInfo="onLogin" />
+
+<!-- 订单 -->
+<view class="content-wrapper">
+  <t-tabs defaultValue="current">
+    <t-tab-panel value="current" label="我的订单">
+      <view class="order-container">
+        <order-detail custom-class="detail-scroll-class" goods="{{currentGoods}}" wx:if="{{haveOrder}}"></order-detail>
+        <t-empty wx:else icon="info-circle-filled" description="暂无订单">
+          <t-button slot="action" custom-style="margin: auto;" theme="danger" size="small" catchtap="goOrder">
+            扫码点餐</t-button>
+        </t-empty>
+        <view wx:if="{{haveOrder}}" class="bottom-btn-content">
+          <t-button bindtap="appendGoods" style="width: 170rpx;" size="small" shape="round" theme="danger">加菜</t-button>
+          <t-button style="width: 170rpx;" size="small" shape="round" theme="primary">
+            支付 <price price="{{ 45000 }}"></price>
+          </t-button>
+        </view>
+      </view>
+    </t-tab-panel>
+    <t-tab-panel value="history" label="历史订单">
+      <view class="order-container" >
+        <order-list custom-class="history-order-scroll-content" list="{{historyOrderList}}" wx:if="{{historyOrderList.length > 0}}" />
+        <t-empty wx:else icon="info-circle-filled" description="暂无订单"></t-empty>
+      </view>
+    </t-tab-panel>
+  </t-tabs>
+</view>
+
+<!-- 登录弹窗 -->
+<t-popup visible="{{visible}}" bind:visible-change="onVisibleChange" placement="bottom">
+  <view class="login-content">
+    <t-avatar image="https://cdn-we-retail.ym.tencent.com/miniapp/usercenter/icon-user-center-avatar@2x.png" class="user-center-card__header__avatar" />
+    <button class="btn" type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+      微信一键登录
+    </button>
+    <button class="btn" bindtap="onOtherLoginMethod" style="width: 60%;">其他方式</button>
+  </view>
+</t-popup>

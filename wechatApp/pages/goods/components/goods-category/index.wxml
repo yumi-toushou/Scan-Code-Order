@@ -1,0 +1,23 @@
+<!--pages/goods/components/goods-category/index.wxml-->
+<wxs module="tool">
+module.exports = {
+  calcRadius: function (category, index, activeKey) {
+    var result = ''
+    if (index + 1 < category.length) {
+      if (category[index + 1].id === activeKey) {
+        result += 'bottom-right-radius'
+      }
+    }
+    if (index - 1 >= 0) {
+      if (category[index - 1].id === activeKey) {
+        result += ' top-right-radius'
+      }
+    }
+    return result
+  }
+}
+</wxs>
+
+<scroll-view class="sidebar custom-class" scroll-y>
+  <goods-category-item wx:for="{{ category }}" wx:key="index" name="{{ item.name }}" isActive="{{ activeKey === item.id }}" data-category="{{ item.id }}" custom-class="{{tool.calcRadius(category, index, activeKey)}}" catchtap="changeCategory"></goods-category-item>
+</scroll-view>

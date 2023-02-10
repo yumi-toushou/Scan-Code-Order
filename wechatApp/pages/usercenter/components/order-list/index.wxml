@@ -1,0 +1,33 @@
+<wxs module="tool">
+module.exports = {
+  checkInActiveList: function(activeValues, id) {
+    return activeValues.filter(function (i) { return i === id}).length > 0
+  }
+}
+</wxs>
+
+<scroll-view scroll-y class="order-list-container custom-class">
+  <view wx:for="{{list}}" class="order-list-item-content">
+    <!-- 简略信息 -->
+    <view class="order-list-title">
+      <view class="number">
+          订单编号：SADGRS233545346GRTGER43453
+      </view>
+      <view class="info">
+        <view>
+          下单时间：{{item.Created_time || '2023-02-09 20:10'}}
+        </view>
+        <view>
+          总价：
+          <price price="{{item.price || '22'}}" fill="{{false}}" decimalSmaller />
+        </view>
+        <text style="color: rgb(0, 250, 12);font-weight: bold;">已支付</text>
+      </view>
+      <view class="footer">
+        <text catchtap="handleChange" data-value="{{item.Id}}">查看详情</text>
+      </view>
+    </view>
+    <!-- 详情 -->
+    <order-detail goods="{{currentGoods}}" wx:if="{{ tool.checkInActiveList(activeValues, item.Id)}}" />
+  </view>
+</scroll-view>
