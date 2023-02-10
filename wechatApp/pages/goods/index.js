@@ -22,13 +22,15 @@ Page({
         id: '1',
         price: '1099',
         name: '辣椒炒肉',
-        categoryId: '1'
+        categoryId: '1',
+        thumbnail: '/assets/images/goods-hongshaorou.jpg'
       },
       {
         id: '2',
         price: '1099',
         name: '竹笋炒肉',
-        categoryId: '1'
+        categoryId: '1',
+        thumbnail: '/assets/images/goods-hongshaorou.jpg'
       }
     ],
     activeKey: '1',

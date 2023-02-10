@@ -6,7 +6,7 @@ module.exports = {
 }
 </wxs>
 
-<view class="order-list-container">
+<scroll-view scroll-y class="order-list-container custom-class">
   <view wx:for="{{list}}" class="order-list-item-content">
     <!-- 简略信息 -->
     <view class="order-list-title">
@@ -28,6 +28,6 @@ module.exports = {
       </view>
     </view>
     <!-- 详情 -->
-    <order-detail wx:if="{{ tool.checkInActiveList(activeValues, item.Id)}}" />
+    <order-detail goods="{{currentGoods}}" wx:if="{{ tool.checkInActiveList(activeValues, item.Id)}}" />
   </view>
-</view>
+</scroll-view>

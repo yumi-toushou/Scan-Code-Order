@@ -1,1 +1,38 @@
 /* pages/usercenter/components/order-detail/index.wxss */
+.scroll {
+  height: 100%;
+  overflow: hidden;
+}
+
+.scroll::-webkit-scrollbar {
+  background: transparent;
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.goods-item {
+  border-bottom: 1rpx solid #f0f0f0;
+  font-size: 26rpx;
+  display: flex;
+  align-items: center;
+  padding: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.image {
+  width: 134rpx;
+  height: 134rpx;
+}
+
+.detail {
+  flex: 1;
+  /* height: 120rpx; */
+  line-height: 50rpx;
+  padding: 0 20rpx;
+}
+
+.detail-second-row {
+  display: flex;
+  justify-content: space-between;
+}

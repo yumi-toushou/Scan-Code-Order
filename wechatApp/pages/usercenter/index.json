@@ -3,6 +3,7 @@
   "navigationStyle": "custom",
   "usingComponents": {
     "t-user-center-card": "./components/user-center-card/index",
+    "price": "/components/price/index",
     "order-list": "./components/order-list/index",
     "order-detail": "./components/order-detail/index",
     "t-button": "/miniprogram_npm/tdesign-miniprogram/button/button",

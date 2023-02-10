@@ -9,8 +9,55 @@ Page({
     userInfo: {},
     currAuthStep: 1,
     visible: false,
-    haveOrder: false,
-    historyOrderList: [{Id: 1}, {Id: 2}]
+    currentGoods: [{
+      name: '红烧肉',
+      count: 2,
+      price: 2000,
+      thumbnail: '/assets/images/goods-hongshaorou.jpg'
+    }, {
+      name: '红烧肉',
+      count: 2,
+      price: 2000,
+      thumbnail: '/assets/images/goods-hongshaorou.jpg'
+    }, 
+    {
+      name: '红烧肉',
+      count: 2,
+      thumbnail: '/assets/images/goods-hongshaorou.jpg',
+      price: 2000
+    }, 
+    {
+      name: '红烧肉',
+      count: 2,
+      thumbnail: '/assets/images/goods-hongshaorou.jpg',
+      price: 2000
+    }, 
+    {
+      name: '红烧肉',
+      count: 2,
+      thumbnail: '/assets/images/goods-hongshaorou.jpg',
+      price: 2000
+    }, 
+    {
+      name: '红烧肉',
+      count: 2,
+      thumbnail: '/assets/images/goods-hongshaorou.jpg',
+      price: 2000
+    }, 
+    {
+      name: '红烧肉',
+      count: 2,
+      thumbnail: '/assets/images/goods-hongshaorou.jpg',
+      price: 2000
+    }, 
+    {
+      name: '红烧肉',
+      count: 2,
+      thumbnail: '/assets/images/goods-hongshaorou.jpg',
+      price: 2000
+    }],
+    haveOrder: true,
+    historyOrderList: [{Id: 1}, {Id: 2}, {Id: 2}, {Id: 2}, {Id: 2}]
   },
 
   /**
@@ -122,6 +169,14 @@ Page({
             res.eventChannel.emit('acceptCodeInfo', codeInfo)
           }
         })
+      }
+    })
+  },
+  appendGoods() {
+    wx.navigateTo({
+      url: '/pages/goods/index',
+      success: function (res) {
+        res.eventChannel.emit('acceptCodeInfo', {desk: 1})
       }
     })
   }

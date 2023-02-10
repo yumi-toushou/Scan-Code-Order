@@ -13,12 +13,12 @@ page {
 
 .order-container {
   height: calc(100vh - 340rpx - var(--td-tab-bar-height, 80rpx) - var(--td-tab-bar-height, 96rpx));
-  padding: 20rpx;
   box-sizing: border-box;
 }
 .t-empty {
   margin-top: 50rpx;
 }
+
 .login-content {
   height: 500rpx;
   background: #fff;
@@ -38,4 +38,34 @@ page {
   border-radius: 48rpx;
   overflow: hidden;
   margin: 35rpx 0;
+}
+
+.detail-scroll-class {
+  box-sizing: border-box;
+  padding-bottom: 120rpx;
+}
+
+.bottom-btn-content {
+  position: absolute;
+  display: block;
+  width: 100%;
+  bottom: 0;
+  height: 120rpx;
+  box-sizing: border-box;
+  padding: 15rpx 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.history-order-scroll-content{
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding-bottom: 20rpx;
+}
+
+.history-order-scroll-content::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background-color: transparent !important;
 }

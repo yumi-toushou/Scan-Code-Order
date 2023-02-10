@@ -10,11 +10,51 @@ Component({
     }
   },
 
+  externalClasses: ['custom-class'],
   /**
    * 组件的初始数据
    */
   data: {
-    activeValues: []
+    activeValues: [],
+    currentGoods: [{
+      name: '红烧肉',
+      count: 2,
+      price: 2000
+    }, {
+      name: '红烧肉',
+      count: 2,
+      price: 2000
+    }, 
+    {
+      name: '红烧肉',
+      count: 2,
+      price: 2000
+    }, 
+    {
+      name: '红烧肉',
+      count: 2,
+      price: 2000
+    }, 
+    {
+      name: '红烧肉',
+      count: 2,
+      price: 2000
+    }, 
+    {
+      name: '红烧肉',
+      count: 2,
+      price: 2000
+    }, 
+    {
+      name: '红烧肉',
+      count: 2,
+      price: 2000
+    }, 
+    {
+      name: '红烧肉',
+      count: 2,
+      price: 2000
+    }, ],
   },
 
   /**
